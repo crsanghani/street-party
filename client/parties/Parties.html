@@ -1,3 +1,8 @@
 <template name="Parties">
   <h1>Parties</h1>
+  <section class="parties">
+    {{#each parties}}
+      <h3>{{name}}</h3>
+    {{/each}}
+  </section>
 </template>
