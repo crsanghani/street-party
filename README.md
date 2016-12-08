@@ -18,3 +18,12 @@ I would like a simple banner always viewable
 ```
 #### Solution
 * Added base CSS code to acquire a banner
+
+```
+As a logged in user,
+So I can navigate easily,
+I would like a side bar to always be on screen
+```
+#### Solution
+* Added Side Nav partial
+* Included ability to navigate between different routes
