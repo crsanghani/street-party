@@ -40,3 +40,4 @@ check
 dispatch:mocha-phantomjs
 xolvio:cleaner
 xolvio:backdoor
+rzymek:fullcalendar
