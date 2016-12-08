@@ -1,6 +1,6 @@
 /* CSS declarations go here */
 normalize-css()
- 
+
 // Material Shadows
 shadow-level(l = 1)
     if l == -1
@@ -17,7 +17,7 @@ shadow-level(l = 1)
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     if l == 5
         box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
- 
+
 // Common Transition
 trans($sec = 0.3s)
     transition: all $sec ease
@@ -27,7 +27,7 @@ $small = 500px
 $med = 700px
 $large = 960px
 $wide = 1200px
- 
+
 // Colors
 black = #222
 grey = #D8D8D8
@@ -44,7 +44,7 @@ maroon = #6A2140
 light-red = #CA5765
 pink = #CF256D
 orange = #E8846B
- 
+
 z = {
     neg: -7,
     lowest: 1,
@@ -57,34 +57,34 @@ z = {
     modal: 10,
     highest: 11
 }
- 
+
 social = {
     twitter: #00aced,
     facebook: #3b5998,
     google: #dd4b39,
     youtube: #bb0000
 }
- 
+
 $side-nav = 100px
 $side-nav-large = 200px
- 
+
 html
     box-sizing: border-box
- 
+
 *, *:before, *:after
     box-sizing: inherit
- 
+
 body
     background light-grey
     padding: 70px 0 150px
- 
+
 header
     color #FFF
     background: purp
     padding 20px
     fixed top left
     width 100%
-    height 70px  
+    height 70px
     z-index: z.header
     shadow-level(2)
     clearfix()
@@ -97,15 +97,15 @@ header
         a
             color #FFF
             text-decoration none
- 
+
 p
     color #333
- 
+
 .page-title
     text-transform uppercase
     text-align center
     margin-bottom 30px
- 
+
 .billboard
     background dark-purp
     color #FFF
@@ -114,7 +114,7 @@ p
     padding 60px
     h2
         margin 0
- 
+
 .main-layout
     lost-center 90%
     margin-top 20px
@@ -125,11 +125,11 @@ p
         lost-center 80%
         margin-top 40px
         padding-left $side-nav-large
-   
-.new-recipe
+
+.new-party
     margin-bottom 20px
- 
-.new-recipe-container
+
+.new-party-container
     position relative
     background #FFF
     padding 20px
@@ -139,13 +139,13 @@ p
         position absolute
         top 0
         right 0
-        padding 20px  
+        padding 20px
     label
         display block
         margin-bottom 10px
     textarea, input
         width 100%
- 
+
 .btn, button
     display inline-block
     cursor pointer
@@ -214,7 +214,7 @@ p
             opacity 1
             shadow-level(2)
             border-color @background
- 
+
 input, select, textarea
     color purp
     background #FFF
@@ -223,19 +223,19 @@ input, select, textarea
     font-weight 800
     width 100%
     padding 6px 10px
-    margin-bottom 10px  
+    margin-bottom 10px
     &.static-input
         border none
         background transparent
- 
+
 .list-group
     list-style none
     padding 0
-   
+
 .panel-body
     .form-group
         lost-column 1/2
-       
+
 .autoform-remove-item.btn
     background light-grey
     box-shadow none
@@ -247,18 +247,18 @@ input, select, textarea
     text-align: center
     display: block
     padding: 0
- 
+
 .autoform-add-item.btn
     width 100%
     border-radius 0
     border none
     box-shadow none
     background light-grey
-     
- 
+
+
 .autoform-remove-item-wrap
     vertical-align middle
- 
+
 .side-nav
     fixed bottom left
     height 100px
@@ -306,8 +306,8 @@ input, select, textarea
             padding 20px 20px
             &:hover, &.active
                 border-left 10px solid teal
- 
-.recipe
+
+.party
     background #FFF
     padding 0 20px 20px
     margin-bottom 20px
@@ -336,7 +336,7 @@ input, select, textarea
         position absolute
         top 0
         right 0
-        font-size 1.6em  
+        font-size 1.6em
         display block
         padding 20px
         color black
@@ -351,7 +351,7 @@ input, select, textarea
     &:hover
         shadow-level(3)
         // animation card 0.6s ease 1 forwards
- 
+
 @keyframes card
     0%
         transform translate3d(0, 0, 0)
@@ -363,13 +363,13 @@ input, select, textarea
     100%
         z-index 10
         transform translate3d(0, 0, 0)
- 
-           
+
+
 .menu-item
-    @extend .recipe
-   
+    @extend .party
+
 .shopping-list
-    @extend .recipe
+    @extend .party
     padding 50px 5%
     list-style none
     li
@@ -379,7 +379,7 @@ input, select, textarea
         border-top 1px solid light-grey
         & + li
             border-top none
- 
+
 .login-buttons-dropdown-align-
     #login-dropdown-list
         right 0
