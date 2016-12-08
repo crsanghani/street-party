@@ -3,7 +3,11 @@ Tasks = new Mongo.Collection('tasks');
 TaskSchema = new SimpleSchema({
     name: {
         type: String,
-        label: "Task Name"
+        label: "Name"
+    },
+    desc: {
+        type: String,
+        label: "Description"
     },
     deadline: {
         type: Date,
