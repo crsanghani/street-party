@@ -14,7 +14,7 @@ Events.deny({
 
 let EventsSchema = new SimpleSchema({
 
-  'name': {
+  'title': {
     type:   String,
     label:  "The title of the event."
   },
