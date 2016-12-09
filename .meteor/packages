@@ -40,4 +40,5 @@ check
 dispatch:mocha-phantomjs
 xolvio:cleaner
 xolvio:backdoor
-rzymek:fullcalendar
+fullcalendar:fullcalendar
+momentjs:moment
