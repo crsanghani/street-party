@@ -1,7 +1,7 @@
 Meteor.subscribe('tasks');
 
 Template.Tasks.helpers({
-    recipes: () => {
+    tasks: () => {
         return Tasks.find({});
     }
 });

@@ -1,4 +1,12 @@
 <template name="Tasks">
-	<h1>Tasks</h1>
 	{{> NewTask }}
+	<section class="tasks">
+			{{#each tasks}}
+				<article class="tasks">
+					<h3>{{name}}</h3>
+					<p>{{desc}}</p>
+					<p>{{deadline}}</p>
+				</article>
+			{{/each}}
+	</section>
 </template>
