@@ -83,6 +83,10 @@ Template.calendar.rendered = function(){
 		},
 		editable:true
 	});
+	Tracker.autorun( () => {
+    CalEvents.find().fetch();
+    $( "#calendar" ).fullCalendar( 'refetchEvents' );
+  });
 }
 var removeCalEvent = function(id,title){
 	CalEvents.remove({_id:id});
