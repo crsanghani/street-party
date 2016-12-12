@@ -40,5 +40,12 @@ check
 dispatch:mocha-phantomjs
 xolvio:cleaner
 xolvio:backdoor
-fullcalendar:fullcalendar
-momentjs:moment
+rzymek:fullcalendar
+
+hwillson:stub-collections
+
+meteor-platform
+autopublish
+mrt:fullcalendar
+mrt:bootstrap-3
+accounts-base
