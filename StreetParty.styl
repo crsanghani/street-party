@@ -77,7 +77,6 @@ social = {
 }
 
 $side-nav = 100px
-$side-nav-large = 200px
 
 html
     box-sizing: border-box
@@ -97,12 +96,11 @@ header
     padding 20px
     fixed top left
     width 100%
-    height 70px
     z-index: z.header
     clearfix()
     h1
         margin 0
-        font-size 1.6em
+        font-size 2em
         float left
         font-family quicksand
         font-weight 500
@@ -113,8 +111,9 @@ header
     .login-buttons-dropdown-align-
         float right
         a
-            color #FFF
+            color rgba(255,255,255,0.6);
             text-decoration none
+            font-size 18px
 
 p
     color #333
@@ -140,9 +139,7 @@ p
         lost-center 90%
         padding-left $side-nav
     +above($large)
-        lost-center 80%
         margin-top 40px
-        padding-left $side-nav-large
 
 .new-party
     margin-bottom 20px
@@ -285,7 +282,6 @@ input, select, textarea
     background orange
     color #FFF
     z-index: z.header
-    shadow-level(2)
     ul
         margin 0
         padding 0
@@ -303,27 +299,21 @@ input, select, textarea
             background burnt
     i
         display block
-        font-size 2em
+        font-size 2.8em
         margin-bottom 10px
     +above($med)
         height 100%
         z-index: z.mid
-        padding 120px 0
-        fixed top left
+        top 80px
+        fixed left
         width $side-nav
         ul
             display block
-        shadow-level(-1)
         a
             padding 20px 10px
-            &:hover, &.active
-                border-left 4px solid teal
     +above($large)
-        width $side-nav-large
         a
             padding 20px 20px
-            &:hover, &.active
-                border-left 10px solid teal
 
 .party
     background #FFF
