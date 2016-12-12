@@ -24,6 +24,7 @@ Template.editEvent.events({
 		updateCalEvent(Session.get('editing_calevent'),tmpl.find('.title').value);
 		Session.set('editing_calevent',null);
 		Session.set('showEditEvent',false);
+    $('#EditEventModal').modal("hide");
 		},
 	'click .close':function(evt,tmpl){
 		Session.set('editing_calevent',null);
