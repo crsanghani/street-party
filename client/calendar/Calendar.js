@@ -18,7 +18,6 @@ var updateCalendar = function(){
 	$('#calendar').fullCalendar( 'refetchEvents' );
 }
 
-// If something with a class of .save in the editEvent template is clicked, run this function
 Template.editEvent.events({
 	'click .save':function(evt,tmpl){
 		updateCalEvent(Session.get('editing_calevent'),tmpl.find('.title').value);
@@ -39,8 +38,6 @@ Template.editEvent.events({
 	}
 })
 
-// Fullcalendar package
-// As soon as the calendar renders, it has to execute this function
 Template.calendar.rendered = function(){
 	$('#calendar').fullCalendar({
 		header:{
@@ -48,19 +45,15 @@ Template.calendar.rendered = function(){
 			center: 'title',
 			right: 'month,basicWeek,basicDay'
 		},
-		// Event triggered when someone clicks on a day in the calendar
+
 		dayClick:function( date, allDay, jsEvent, view) {
-			// Insert the day someone's clicked on
 			CalEvents.insert({title:'New Item',start:date,end:date});
-			// Refreshes the calendar
 			updateCalendar();
 		},
+
 		eventClick:function(calEvent,jsEvent,view){
-			// Set the editing_calevent variable to equal the calEvent.id
 			Session.set('editing_calevent',calEvent.id);
-			// Set the showEditEvent variable to true
 			Session.set('showEditEvent', true);
-			//Trigger the modal bootstrap 3 box as defined in the calendar.html page
 			$('#EditEventModal').modal("show");
 		},
 		eventDrop:function(calEvent){
@@ -68,17 +61,13 @@ Template.calendar.rendered = function(){
 			updateCalendar();
 		},
 		events: function(start, end, callback) {
-			// Create an empty array to store the events
+
 			var events = [];
-			// Variable to pass events to the calendar
-			// Gets us all of the calendar events and puts them in the array
 			calEvents = CalEvents.find();
-			// Do a for each loop and add what you find to events array
 			calEvents.forEach(function(evt){
 				events.push({	id:evt._id,title:evt.title,start:evt.start,end:evt.end});
 			})
 
-			// Callback to pass events back to the calendar
 			callback(events);
 		},
 		editable:true
