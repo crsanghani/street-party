@@ -1,23 +1,6 @@
 /* CSS declarations go here */
 normalize-css()
 
-// Material Shadows
-shadow-level(l = 1)
-    if l == -1
-        box-shadow: inset -2px 7px 9px -7px rgba(0,0,0,0.7);
-    if l == 0
-        box-shadow: none;
-    if l == 1
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    if l == 2
-        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    if l == 3
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    if l == 4
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    if l == 5
-        box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-
 // Common Transition
 trans($sec = 0.3s)
     transition: all $sec ease
@@ -43,8 +26,6 @@ bright-blue = #0082C8
 maroon = #6A2140
 light-red = #CA5765
 pink = #CF256D
-
-
 
 // Defined by us
 orange = #FF9603
@@ -85,6 +66,7 @@ html
     box-sizing: inherit
 
 body
+    font-size 16px
     background light-grey
     padding: 70px 0 150px
     -webkit-font-smoothing antialiased
@@ -123,15 +105,6 @@ p
     text-align center
     margin-bottom 30px
 
-.billboard
-    background dark-purp
-    color #FFF
-    font-size 2em
-    text-align center
-    padding 60px
-    h2
-        margin 0
-
 .main-layout
     lost-center 90%
     margin-top 20px
@@ -149,7 +122,6 @@ p
     background #FFF
     padding 20px
     margin-bottom 20px
-    shadow-level(2)
     .fa-close
         position absolute
         top 0
@@ -164,20 +136,18 @@ p
 .btn, button
     display inline-block
     cursor pointer
-    background purp
+    background button-blue
     color #FFF
     text-decoration none
-    text-transform uppercase
-    padding 5px 15px
-    border solid 3px purp
-    border-radius 2px
-    font-weight 800
-    shadow-level(1)
+    padding 12px 20px
+    border none
+    border-radius 8px
+    font-size 18px
+    font-weight 700
     trans()
     &:hover
         background @background - 20
         border-color @background
-        shadow-level(2)
     &.btn-primary
         background teal
         border-color teal
@@ -195,21 +165,17 @@ p
         color purp
         background transparent
         border solid 2px purp
-        shadow-level(0)
         &:hover
             background teal
             border-color @background
-            shadow-level(1)
     &.btn-text-dark
         color #FFF
         background transparent
         border solid 2px #FFF
-        shadow-level(0)
         &:hover
             background #FFF
             color dark-purp
             border-color @background
-            shadow-level(1)
     &.btn-confirmation
         color black
         background green
@@ -222,22 +188,20 @@ p
         background transparent
         border solid 2px #FFF
         opacity 0.4
-        shadow-level(-1)
         &:hover
             background red
             color #FFF
             opacity 1
-            shadow-level(2)
             border-color @background
 
 input, select, textarea
     color purp
     background #FFF
-    border solid 2px light-grey
-    border-radius 2px
-    font-weight 800
+    border solid 1px light-grey
+    border-radius 8px
+    font-weight 400
     width 100%
-    padding 6px 10px
+    padding 13px 24px
     margin-bottom 10px
     &.static-input
         border none
@@ -321,7 +285,8 @@ input, select, textarea
     margin-bottom 20px
     position relative
     z-index 1
-    shadow-level(1)
+    border 1px solid light-grey
+    border-radius 8px
     trans()
     .btn-primary, .btn-deny
         display block
@@ -356,9 +321,6 @@ input, select, textarea
         display inline-block
         margin-right 10px
         font-size 1.2em
-    &:hover
-        shadow-level(3)
-        // animation card 0.6s ease 1 forwards
 
 @keyframes card
     0%
@@ -394,3 +356,25 @@ input, select, textarea
         left auto
         a
             color dark-purp
+
+.home-container
+    width 800px
+    margin 0 auto
+    background-color #fff
+    border-radius 8px
+    padding 40px 80px
+    margin-top 60px
+    h2
+        font-family quicksand
+        font-size 40px
+        font-weight 500
+        text-align center
+        margin 0
+        padding 0 0 30px 0
+    .search-party
+        margin-bottom 40px
+        input
+            width 80%
+            margin-right 12px
+        button
+            padding 12px 25px
