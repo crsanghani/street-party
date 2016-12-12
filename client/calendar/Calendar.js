@@ -1,6 +1,3 @@
-// Create a new MongoDB collection for calendar events
-
-// Set session defaults
 Session.setDefault('editing_calevent', null);
 Session.setDefault('showEditEvent', false);
 
@@ -9,7 +6,6 @@ Template.calendar.showEditEvent = function(){
 }
 
 Template.editEvent.evt = function(){
-	// run a query to the database
 	var calEvent = CalEvents.findOne({_id:Session.get('editing_calevent')});
 	return calEvent;
 }
@@ -23,8 +19,8 @@ Template.editEvent.events({
 		updateCalEvent(Session.get('editing_calevent'),tmpl.find('.title').value);
 		Session.set('editing_calevent',null);
 		Session.set('showEditEvent',false);
-    $('#EditEventModal').modal("hide");
-		},
+		$('#EditEventModal').modal("hide");
+	},
 	'click .close':function(evt,tmpl){
 		Session.set('editing_calevent',null);
 		Session.set('showEditEvent',false);
@@ -72,16 +68,17 @@ Template.calendar.rendered = function(){
 		},
 		editable:true
 	});
+
 	Tracker.autorun( () => {
-    CalEvents.find().fetch();
-    $( "#calendar" ).fullCalendar( 'refetchEvents' );
-  });
+		CalEvents.find().fetch();
+		$( "#calendar" ).fullCalendar( 'refetchEvents' );
+	});
 }
 var removeCalEvent = function(id,title){
 	CalEvents.remove({_id:id});
 	updateCalendar();
- }
+}
 var updateCalEvent = function(id,title){
 	CalEvents.update(id, {$set: {title:title}});
 	updateCalendar();
- }
+}
