@@ -5,6 +5,10 @@ Template.register.events({
         var email = $('#email').val(),
             firstName = $('#first-name').val(),
             lastName = $('#last-name').val(),
+            address = $('#address').val(),
+            phoneNumber = $('#phone-number').val(),
+            facebookAddress = $('#facebook-address').val(),
+            twitterAddress = $('#twitter-address').val(),
             password = $('#password').val(),
             passwordAgain = $('#password-again').val();
 
@@ -35,6 +39,10 @@ Template.register.events({
                 email: email,
                 firstName: firstName,
                 lastName: lastName,
+                address: address,
+                phoneNumber: phoneNumber,
+                facebookAddress: facebookAddress,
+                twitterAddress: twitterAddress,
                 password: password
             }, function(error) {
                 if (error) {
