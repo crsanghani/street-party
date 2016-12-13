@@ -2,11 +2,18 @@
   <section class="parties">
     {{#each parties}}
     <article class="party">
-      <h3>{{name}}</h3>
-      <p>{{streetName}}</p>
-      <p>{{date}}</p>
-      <p>{{time}}</p>
-      <p>{{createdBy}}</p>
+      <div class="party-header">
+        <h3>{{name}}</h3>
+        <span class="party-date">31st December 2016</span>
+      </div>
+      <div class="party-details">
+        <p><span>Location:</span> {{streetName}}</p>
+        <p><span>Time:</span> {{time}}</p>
+      </div>
+      <div class="party-footer">
+        <a href="/parties/:id" class="btn">View Party</a>
+        <span class="created-by"><i class="fa fa-user-circle"></i> Created by Darren Firth</span>
+      </div>
     </article>
     {{/each}}
   </section>
