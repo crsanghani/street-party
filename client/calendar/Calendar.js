@@ -16,7 +16,7 @@ var updateCalendar = function(){
 
 Template.editEvent.events({
 	'click .save':function(evt,tmpl){
-		updateCalEvent(Session.get('editing_calevent'),tmpl.find('.title').value, tmpl.find('.assignee').value);
+		updateCalEvent(Session.get('editing_calevent'),tmpl.find('.title').value, tmpl.find('.assignee').value,);
 		Session.set('editing_calevent',null);
 		Session.set('showEditEvent',false);
 		$('#EditEventModal').modal("hide");
@@ -28,6 +28,12 @@ Template.editEvent.events({
 	}	,
 	'click .remove':function(evt,tmpl){
 		removeCalEvent(Session.get('editing_calevent'));
+		Session.set('editing_calevent',null);
+		Session.set('showEditEvent',false);
+		$('#EditEventModal').modal("hide");
+	},
+	'click .complete':function(evt,tmpl){
+		completeCalEvent(Session.get('editing_calevent'), tmpl.find('.title').value);
 		Session.set('editing_calevent',null);
 		Session.set('showEditEvent',false);
 		$('#EditEventModal').modal("hide");
@@ -76,6 +82,10 @@ Template.calendar.rendered = function(){
 }
 var removeCalEvent = function(id,title){
 	CalEvents.remove({_id:id});
+	updateCalendar();
+}
+var completeCalEvent = function(id,title){
+	CalEvents.update(id, {$set: {title:"COMPLETED: " + title}});
 	updateCalendar();
 }
 var updateCalEvent = function(id,title, assignee){
