@@ -43,3 +43,10 @@ xolvio:backdoor
 rzymek:fullcalendar
 
 hwillson:stub-collections
+
+
+meteor-platform
+autopublish
+mrt:fullcalendar
+mrt:bootstrap-3
+accounts-base
