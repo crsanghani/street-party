@@ -1,5 +1,31 @@
 Parties = new Mongo.Collection('parties');
 
+let TasksSchema = new SimpleSchema({
+  'title': {
+    type:   String,
+    label:  "The name of the task."
+  },
+  'start': {
+    type:   String,
+    label:  "When this task is due."
+  },
+  'assignee': {
+    type:   String,
+    label:  "Participant responsible for task."
+  },
+  'createdBy': {
+    type:   String,
+    label:  "Administrator",
+    autoValue: function() {
+      return this.userId;
+    },
+    autoform: {
+      type: "hidden"
+    }
+  }
+});
+
+
 Party = new SimpleSchema({
   name: {
     type: String,
@@ -16,6 +42,9 @@ Party = new SimpleSchema({
   time: {
     type: String,
     label: "Party Time"
+  },
+  tasks: {
+    type: [TasksSchema]
   },
   createdBy: {
     type: String,
