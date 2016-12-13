@@ -40,7 +40,6 @@ check
 dispatch:mocha-phantomjs
 xolvio:cleaner
 xolvio:backdoor
-rzymek:fullcalendar
 
 hwillson:stub-collections
 
