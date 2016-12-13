@@ -2,15 +2,18 @@
 	<nav class="top-nav">
 		<ul>
       {{#if currentUser}}
+			<li>
+				<a href="/create-party" class="btn btn-orange">Create Party</a>
+			</li>
       <li>
-        <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
+        <a href="/logout" class="btn"><i class="fa fa-sign-out"></i> Logout</a>
       </li>
       {{else}}
       <li>
-        <a href="/login"><i class="fa fa-sign-in"></i> Login</a>
+        <a href="/login" class="btn"><i class="fa fa-sign-in"></i> Login</a>
       </li>
       <li>
-        <a href="/register"><i class="fa fa-address-card-o"></i> Register</a>
+        <a href="/register" class="btn"><i class="fa fa-address-card-o"></i> Register</a>
       </li>
       {{/if}}
 		</ul>
