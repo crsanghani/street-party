@@ -40,15 +40,19 @@ check
 dispatch:mocha-phantomjs
 xolvio:cleaner
 xolvio:backdoor
-rzymek:fullcalendar
 
 hwillson:stub-collections
 
-
 meteor-platform
+
 jagi:astronomy
 jagi:astronomy-validators
 semantic:ui
 flemay:less-autoprefixer
 arillo:flow-router-helpers
 kevohagan:sweetalert
+
+autopublish
+mrt:fullcalendar
+mrt:bootstrap-3
+accounts-base

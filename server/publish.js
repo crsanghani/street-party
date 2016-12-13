@@ -1,3 +1,8 @@
+
+Meteor.publish( 'events', function() {
+  return Events.find();
+});
+
 Meteor.publish('tasks', function() {
     return Tasks.find();
 });
