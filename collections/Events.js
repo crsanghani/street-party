@@ -9,6 +9,10 @@ let TasksSchema = new SimpleSchema({
     type:   String,
     label:  "When this task is due."
   },
+  'assignee': {
+    type:   String,
+    label:  "Participant responsible for task."
+  },
   'createdBy': {
     type:   String,
     label:  "Administrator",
@@ -18,8 +22,7 @@ let TasksSchema = new SimpleSchema({
     autoform: {
       type: "hidden"
     }
-  },
-
+  }
 });
 
 CalEvents.attachSchema( TasksSchema );
