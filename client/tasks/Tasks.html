@@ -1,12 +1,13 @@
 <template name="Tasks">
-	{{> NewTask }}
-	<section class="tasks">
-			{{#each tasks}}
-				<article class="tasks">
-					<h3>{{name}}</h3>
-					<p>{{desc}}</p>
-					<p>{{deadline}}</p>
-				</article>
-			{{/each}}
-	</section>
+	<h1>Tasks</h1>
+		{{#each tasks}}
+			<ul>
+				<div class="tasks-layout">
+					<p class="text">Task: {{title}}</p>
+					<p class="text">Assigned: {{assignee}}</p>
+					<p class="text">Target Date: {{start}}</p>
+				</div>
+			</ul>
+
+		{{/each}}
 </template>
