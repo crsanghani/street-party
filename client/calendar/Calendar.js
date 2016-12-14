@@ -54,7 +54,7 @@ Template.calendar.rendered = function(){
 
 		dayClick:function( date, allDay, jsEvent, view) {
 			Parties.update({'_id': getCurrentParty()}, {$addToSet: { tasks: { title:'New Item',start: date, end: date,assignee:'Assignee' } } } );
-			CalEvents.insert({title:'New Item',start:date,end:date,assignee:'Assignee'});
+			// CalEvents.insert({title:'New Item',start:date,end:date,assignee:'Assignee'});
 			updateCalendar();
 		},
 
@@ -64,7 +64,7 @@ Template.calendar.rendered = function(){
 			$('#EditEventModal').modal("show");
 		},
 		eventDrop:function(calEvent){
-			CalEvents.update(calEvent.id, {$set: {start:calEvent.start,end:calEvent.end}});
+			Parties.update({'_id': getCurrentParty()}, {$addToSet: {start:calEvent.start,end:calEvent.end}});
 			updateCalendar();
 		},
 		events: function(start, end, callback) {

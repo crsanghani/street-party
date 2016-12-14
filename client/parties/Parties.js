@@ -5,3 +5,9 @@ Template.Parties.helpers({
     return Parties.find()
   }
 });
+
+Template.Parties.events({
+  'click .party':  function() {
+    Session.set('currentParty', this._id)
+  }
+});

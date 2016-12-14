@@ -2,13 +2,13 @@ Meteor.subscribe('tasks');
 
 Template.Tasks.helpers({
     tasks: () => {
-        return CalEvents.find({});
+        return Parties.find({});
     }
 });
 
 Template.Tasks.events({
   'click .toggle-checked'() {
-    CalEvents.update(this._id, {
+    Parties.update(this._id, {
       $set: { checked: ! this.checked },
     });
   },
