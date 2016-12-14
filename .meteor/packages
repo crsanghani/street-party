@@ -56,3 +56,5 @@ autopublish
 mrt:fullcalendar
 mrt:bootstrap-3
 accounts-base
+
+mrt:moment
