@@ -1,16 +1,16 @@
 Session.setDefault('editing_calevent', null);
 Session.setDefault('showEditEvent', false);
 
-function getCurrentParty() {
-	return Session.get("currentParty")
-}
+// function getCurrentParty() {
+// 	return Session.get("currentParty")
+// }
 
 Template.calendar.showEditEvent = function(){
 	return Session.get('showEditEvent');
 }
 
 Template.editEvent.evt = function(){
-	var calEvent = CalEvents.findOne({_id:Session.get('editing_calevent')});
+	var calEvent = Parties.findOne({'_id': getCurrentParty()});
 	return calEvent;
 }
 
@@ -54,7 +54,6 @@ Template.calendar.rendered = function(){
 
 		dayClick:function( date, allDay, jsEvent, view) {
 			Parties.update({'_id': getCurrentParty()}, {$addToSet: { tasks: { title:'New Item',start: date, end: date,assignee:'Assignee' } } } );
-			// CalEvents.insert({title:'New Item',start:date,end:date,assignee:'Assignee'});
 			updateCalendar();
 		},
 
@@ -63,38 +62,48 @@ Template.calendar.rendered = function(){
 			Session.set('showEditEvent', true);
 			$('#EditEventModal').modal("show");
 		},
+
 		eventDrop:function(calEvent){
 			Parties.update({'_id': getCurrentParty()}, {$addToSet: {start:calEvent.start,end:calEvent.end}});
 			updateCalendar();
 		},
+
 		events: function(start, end, callback) {
 
+			// Template.editEvent.evt = function(){
+			// 	var calEvent = Parties.findOne({'_id': getCurrentParty()});
+			// 	return calEvent;
+			// }
+
+
 			var events = [];
-			calEvents = CalEvents.find();
+			var currentParty = getCurrentParty();
+			var calEvents = Parties.find({'_id':currentParty()}).fetch();
+			console.log(calEvents);
+			console.log(currentParty());
 			calEvents.forEach(function(evt){
 				events.push({	id:evt._id,title:evt.title,start:evt.start,end:evt.end,assignee:evt.assignee});
-			})
-
+			});
 			callback(events);
 		},
 		editable:true
 	});
 
 	Tracker.autorun( () => {
-		CalEvents.find().fetch();
+		Parties.find().fetch().tasks;
 		$( "#calendar" ).fullCalendar( 'refetchEvents' );
 	});
 }
 var removeCalEvent = function(id,title){
-	CalEvents.remove({_id:id});
+	Parties.remove({'_id': getCurrentParty()}); //#TODO
 	updateCalendar();
 }
 var completeCalEvent = function(id,title){
-	CalEvents.update(id, {$set: {title:"COMPLETED: " + title}});
+	Parties.update({'_id': getCurrentParty()}, {$set: {title:"COMPLETED: " + title}});
 	updateCalendar();
 }
 var updateCalEvent = function(id,title, assignee){
-	CalEvents.update(id, {$set: {title:title}});
-	CalEvents.update(id, {$set: {assignee:assignee}});
+	Parties.update({'_id': getCurrentParty()}, {$set: {title:title}});
+	Parties.update({'_id': getCurrentParty()}, {$set: {assignee:assignee}});
 	updateCalendar();
 }

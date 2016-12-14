@@ -11,3 +11,4 @@ Template.Parties.events({
     Session.set('currentParty', this._id)
   }
 });
+ 

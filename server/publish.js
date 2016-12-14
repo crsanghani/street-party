@@ -4,7 +4,7 @@ Meteor.publish( 'events', function() {
 });
 
 Meteor.publish('tasks', function() {
-    return Tasks.find();
+    return Parties.find().fetch().tasks;
 });
 
 Meteor.publish('parties', function() {
