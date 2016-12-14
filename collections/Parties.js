@@ -1,5 +1,20 @@
 Parties = new Mongo.Collection('parties');
 
+// Host = new SimpleSchema({
+//   firstName: {
+//     type: String,
+//     autoValue: function() {
+//       return Meteor.user().profile.firstName;
+//     }
+//   },
+//   lastName: {
+//     type: String,
+//     autoValue: function() {
+//       return Meteor.user().profile.lastName;
+//     }
+//   }
+// });
+
 Party = new SimpleSchema({
   name: {
     type: String,
@@ -22,6 +37,16 @@ Party = new SimpleSchema({
     label: "Created By",
     autoValue: function() {
       return this.userId;
+    },
+    autoform: {
+      type: "hidden"
+    }
+  },
+  host: {
+    type: String,
+    label: "Hosted By",
+    autoValue: function() {
+      return `${Meteor.user().profile.firstName} ${Meteor.user().profile.lastName}`;
     },
     autoform: {
       type: "hidden"
