@@ -5,12 +5,12 @@
 Inspired by the Queens jubilee, a member of our group had an idea for an app which would help to organise street parties. This was following a bad experience attempting to host a party on his own street with some minor success. It could have definitely been improved with better organisation!
 
 #### Developing the Concept
-Darren Firth was the originator of the app concept. In order to help explain the concept he created some basic designs including constructs and routings.
+Darren Firth was the originator of the app concept. In order to help explain the concept he created some basic designs including constructs and routings. </br>
 ![Screenshot](screenshots/Original-Concept.png "Original concept by Darren Firth")
 ![Screenshot](screenshots/Original-Routing.png "Original routing by Darren Firth")
 
 #### Final Design Concept
-Tom Nunn is a front end developer with a background in design. Following discussions about the concept he mocked up some designs as to how he believed the final product could look. We have all aimed to reproduce these designs in the final product.
+Tom Nunn is a front end developer with a background in design. Following discussions about the concept he mocked up some designs as to how he believed the final product could look. We have all aimed to reproduce these designs in the final product. </br>
 ![Screenshot](screenshots/Final-Concept-1.png "Final concept 1 by Tom Nunn")
 ![Screenshot](screenshots/Final-Concept-2.png "Final concept 2 by Tom Nunn")
 ![Screenshot](screenshots/Final-Concept-3.png "Final concept 3 by Tom Nunn")
