@@ -61,12 +61,6 @@ body
     font-family roboto
     font-size 16px
     background-color light-grey
-    // background-image url("https://images.unsplash.com/photo-1425421598808-4a22ce59cc97?dpr=1&auto=format&fit=crop&w=1500&h=1001&q=80&cs=tinysrgb&crop=")
-    // background-position center
-    // -webkit-background-size cover
-    // -moz-background-size cover
-    // background-size cover
-    // background-repeat no-repeat
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
 
@@ -76,7 +70,13 @@ h3
     font-family quicksand
 
 p
-    color #333
+    color navy-blue
+
+a
+    color ocean-blue
+    &:hover
+        text-decoration none
+        color @color - 50
 
 .page-title
     text-transform uppercase
@@ -105,6 +105,9 @@ header
             font-weight 700
         a
             color #FFF
+            &:hover
+                color #FFF
+                opacity 0.9
     .top-nav
         display inline-block
         text-align right
@@ -157,24 +160,40 @@ header
         width 100%
 
 .home-layout
-    width 800px
-    margin 140px auto
-    background-color #fff
-    border-radius 8px
-    padding 40px 80px
-    h2
-        font-size 40px
-        font-weight 500
-        text-align center
-        margin 0
-        padding 0 0 30px 0
-    .search-party
-        margin-bottom 40px
-        input
-            width 80%
-            margin-right 12px
-        button
-            padding 12px 25px
+  position absolute
+  width 100%
+  // background-image linear-gradient(to bottom,rgba(40,51,66,0.5) 0%,rgba(40,51,66,0.5) 100%), url("https://images.unsplash.com/photo-1425421598808-4a22ce59cc97?dpr=1&auto=format&fit=crop&w=1500&h=1001&q=80&cs=tinysrgb&crop=")
+  // background-position center
+  // -webkit-background-size cover
+  // -moz-background-size cover
+  // background-size cover
+  // background-repeat no-repeat
+  // background-attachment fixed
+  .home-container
+      max-width 800px
+      margin 140px auto
+      background-color #fff
+      border 1px solid light-grey
+      border-radius 8px
+      padding 40px 80px
+      h2
+          font-size 40px
+          font-weight 500
+          text-align center
+          margin 0
+          padding 0 0 30px 0
+      .search-party
+          margin-bottom 40px
+          input
+              width 80%
+              margin-right 12px
+          button
+              padding 12px 25px
+      .login, .register
+          max-width 400px
+          margin 0 auto
+          p
+              margin 20px 0 0
 
 /* Forms, Inputs & Buttons
 --------------------------------------------- */
@@ -194,6 +213,8 @@ header
         background @background - 20
         border-color @background
         text-decoration none
+        color #FFF
+    &:focus
         color #FFF
     &.btn-orange
         background orange
@@ -241,8 +262,8 @@ header
             opacity 1
             border-color @background
 
-input, select, textarea
-    color purp
+input, select, textarea, .form-control
+    color navy-blue
     background #FFF
     border solid 1px light-grey
     border-radius 8px
@@ -250,6 +271,11 @@ input, select, textarea
     width 100%
     padding 13px 20px
     margin-bottom 10px
+    font-size inherit
+    height inherit
+    box-shadow none
+    &[type="date"]
+      line-height inherit
     &:focus
         outline none
         border 1px solid #ddd
@@ -351,8 +377,8 @@ input, select, textarea
         display inline-block
     .party-header
         border-bottom light-grey solid 1px
-        padding-bottom 10px
-        margin-bottom 10px
+        padding-bottom 14px
+        margin-bottom 18px
         .party-date
           float right
           font-weight 500
@@ -433,3 +459,8 @@ input, select, textarea
     border-radius 8px
     padding 10px 20px
     display block
+
+/* Templates
+--------------------------------------------- */
+
+// Login
