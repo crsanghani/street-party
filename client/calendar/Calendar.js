@@ -1,6 +1,10 @@
 Session.setDefault('editing_calevent', null);
 Session.setDefault('showEditEvent', false);
 
+function getCurrentParty() {
+	return Session.get("currentParty")
+}
+
 Template.calendar.showEditEvent = function(){
 	return Session.get('showEditEvent');
 }
@@ -49,6 +53,7 @@ Template.calendar.rendered = function(){
 		},
 
 		dayClick:function( date, allDay, jsEvent, view) {
+			Parties.update({'_id': getCurrentParty()}, {$addToSet: { tasks: { title:'New Item',start: date, end: date,assignee:'Assignee' } } } );
 			CalEvents.insert({title:'New Item',start:date,end:date,assignee:'Assignee'});
 			updateCalendar();
 		},
