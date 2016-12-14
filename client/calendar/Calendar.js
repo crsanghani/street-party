@@ -84,7 +84,7 @@ var removeCalEvent = function(id,title){
 	CalEvents.remove({_id:id});
 	updateCalendar();
 }
-var completeCalEvent = function(id,title){
+var completeCalEvent = function(id,title, color){
 	CalEvents.update(id, {$set: {title:"COMPLETED: " + title}});
 	updateCalendar();
 }
