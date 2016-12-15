@@ -60,13 +60,8 @@ html
 body
     font-family roboto
     font-size 16px
+    color navy-blue
     background-color light-grey
-    // background-image url("https://images.unsplash.com/photo-1425421598808-4a22ce59cc97?dpr=1&auto=format&fit=crop&w=1500&h=1001&q=80&cs=tinysrgb&crop=")
-    // background-position center
-    // -webkit-background-size cover
-    // -moz-background-size cover
-    // background-size cover
-    // background-repeat no-repeat
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
 
@@ -76,7 +71,13 @@ h3
     font-family quicksand
 
 p
-    color #333
+    color navy-blue
+
+a
+    color ocean-blue
+    &:hover
+        text-decoration none
+        color @color - 50
 
 .page-title
     text-transform uppercase
@@ -105,6 +106,10 @@ header
             font-weight 700
         a
             color #FFF
+            &:hover, &:focus
+                color #FFF
+                opacity 0.9
+                text-decoration none
     .top-nav
         display inline-block
         text-align right
@@ -130,12 +135,14 @@ header
 
 .main-layout
     lost-center 90%
-    margin 140px 0 150px
+    margin 120px 0 150px
     +above($med)
         lost-center 90%
         padding-left $side-nav
     +above($large)
-        margin-top 140px
+        margin-top 120px
+    .party-name
+        margin 0 0 30px
 
 .new-party
     margin-bottom 20px
@@ -157,24 +164,41 @@ header
         width 100%
 
 .home-layout
-    width 800px
-    margin 140px auto
-    background-color #fff
-    border-radius 8px
-    padding 40px 80px
-    h2
-        font-size 40px
-        font-weight 500
-        text-align center
-        margin 0
-        padding 0 0 30px 0
-    .search-party
-        margin-bottom 40px
-        input
-            width 80%
-            margin-right 12px
-        button
-            padding 12px 25px
+  position absolute
+  width 100%
+  background-color light-grey
+  // background-image linear-gradient(to bottom,rgba(40,51,66,0.5) 0%,rgba(40,51,66,0.5) 100%), url("https://images.unsplash.com/photo-1425421598808-4a22ce59cc97?dpr=1&auto=format&fit=crop&w=1500&h=1001&q=80&cs=tinysrgb&crop=")
+  // background-position center
+  // -webkit-background-size cover
+  // -moz-background-size cover
+  // background-size cover
+  // background-repeat no-repeat
+  // background-attachment fixed
+  .home-container
+      max-width 800px
+      margin 140px auto
+      background-color #fff
+      border 1px solid light-grey
+      border-radius 8px
+      padding 40px 80px
+      h2
+          font-size 40px
+          font-weight 500
+          text-align center
+          margin 0
+          padding 0 0 30px 0
+      .search-party
+          margin-bottom 40px
+          input
+              width 80%
+              margin-right 12px
+          button
+              padding 12px 25px
+      .login, .register
+          max-width 400px
+          margin 0 auto
+          p
+              margin 20px 0 0
 
 /* Forms, Inputs & Buttons
 --------------------------------------------- */
@@ -195,6 +219,8 @@ header
         border-color @background
         text-decoration none
         color #FFF
+    &:focus
+        color #FFF
     &.btn-orange
         background orange
         border-color orange
@@ -208,28 +234,6 @@ header
         &:hover
             background @background - 20
             border-color @background
-    &.btn-text
-        color purp
-        background transparent
-        border solid 2px purp
-        &:hover
-            background teal
-            border-color @background
-    &.btn-text-dark
-        color #FFF
-        background transparent
-        border solid 2px #FFF
-        &:hover
-            background #FFF
-            color dark-purp
-            border-color @background
-    &.btn-confirmation
-        color black
-        background green
-        border solid 2px @background
-        &:hover
-            background @background - 20
-            border-color dark-purp
     &.btn-cancel
         color #FFF
         background transparent
@@ -241,8 +245,8 @@ header
             opacity 1
             border-color @background
 
-input, select, textarea
-    color purp
+input, select, textarea, .form-control
+    color navy-blue
     background #FFF
     border solid 1px light-grey
     border-radius 8px
@@ -250,6 +254,11 @@ input, select, textarea
     width 100%
     padding 13px 20px
     margin-bottom 10px
+    font-size inherit
+    height inherit
+    box-shadow none
+    &[type="date"]
+      line-height inherit
     &:focus
         outline none
         border 1px solid #ddd
@@ -351,10 +360,11 @@ input, select, textarea
         display inline-block
     .party-header
         border-bottom light-grey solid 1px
-        padding-bottom 10px
-        margin-bottom 10px
+        padding-bottom 14px
+        margin-bottom 18px
         .party-date
           float right
+          font-size 14px
           font-weight 500
           background-color navy-blue
           color #FFF
@@ -372,24 +382,6 @@ input, select, textarea
         font-weight 700
     .created-by
         color orange
-    .fa-trash
-        opacity 0.3
-        cursor pointer
-        position absolute
-        top 0
-        right 0
-        font-size 1.6em
-        display block
-        padding 20px
-        color black
-        trans()
-        &:hover
-            color red
-            opacity 0.6
-    .ingredient
-        display inline-block
-        margin-right 10px
-        font-size 1.2em
 
 @keyframes card
     0%
@@ -403,28 +395,10 @@ input, select, textarea
         z-index 10
         transform translate3d(0, 0, 0)
 
-
-.menu-item
-    @extend .party
-
-.shopping-list
-    @extend .party
-    padding 50px 5%
-    list-style none
-    li
-        font-size 2em
-        padding 20px
-        border-bottom 1px solid light-grey
-        border-top 1px solid light-grey
-        & + li
-            border-top none
-
 .login-buttons-dropdown-align-
     #login-dropdown-list
         right 0
         left auto
-        a
-            color dark-purp
 
 .tasks-layout
     width 400px
@@ -433,3 +407,51 @@ input, select, textarea
     border-radius 8px
     padding 10px 20px
     display block
+
+/* Full Calendar
+--------------------------------------------- */
+.fc-header
+    margin-bottom: 15px;
+    h2
+        margin 0
+    .fc-state-default
+        background-image none
+        box-shadow none
+        text-shadow none
+        color inherit
+        border none
+    .fc-state-active
+        background-color navy-blue
+        color #fff !important
+    .fc-button
+        display initial
+        height inherit
+        padding: 0.5em 1em;
+
+.fc
+  .fc-view
+      background-color #FFFFFE
+      border-radius 8px
+  .fc-widget-header, .fc-widget-content
+      border-color light-grey
+  .fc-grid
+      th
+          padding 8px 0
+          background-color navy-blue
+          color #FFF
+      .fc-day-number
+          padding 8px 10px 0 0
+      .fc-state-highlight
+          background rgba(255,150,3,0.1)
+          .fc-day-number
+              font-weight 500
+  .fc-event
+      font-size 0.80em
+      background: ocean-blue !important;
+      color: #FFF !important;
+      border none
+  .fc-event-hori.fc-event-end, .fc-event-hori.fc-event-start
+      border-radius 4px
+      padding 6px 6px
+      margin 2px 0 4px 0
+      border none
