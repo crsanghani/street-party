@@ -12,11 +12,17 @@
 				<div class="modal-body">
 			    <label for="assignee">Assignee: </label><input type="text" class="assignee" name="assignee" value="{{evt.assignee}}" id="assignee">
 		    </div>
+				<div class="modal-body">
+                <label for="completeStatus">Task Complete?</label>
+                <select name="completeStatus" class="form-control">
+                  <option value="Pending">Pending</option>
+                  <option value="Complete">Complete</option>
+                </select>
+              </div>
 		    <div class="modal-footer">
-					<a href="#" class="btn btn-secondary complete">Completed</a>
     			<a href="#" class="btn btn-primary save">Save</a>
-					<a href="#" class="btn btn-danger remove">Delete</a>
-    			<a href="#" class="btn close" data-dismiss="modal">Cancel</a>
+					<a href="#" class="btn btn-deny remove">Delete</a>
+    			<a href="#" class="btn btn-close" data-dismiss="modal">Cancel</a>
   		  </div>
   		</div>
 	  </div>

@@ -229,21 +229,14 @@ header
             background @background - 20
             border-color @background
     &.btn-deny
-        background red
-        border solid 3px @background
+        background #d9534f
         &:hover
             background @background - 20
-            border-color @background
-    &.btn-cancel
-        color #FFF
-        background transparent
-        border solid 2px #FFF
-        opacity 0.4
+    &.btn-close
+        color navy-blue
+        background light-grey
         &:hover
-            background red
-            color #FFF
-            opacity 1
-            border-color @background
+            background @background - 20
 
 input, select, textarea, .form-control
     color navy-blue
@@ -450,6 +443,15 @@ input, select, textarea, .form-control
       background: ocean-blue !important;
       color: #FFF !important;
       border none
+      .fc-event-title
+          .status-Pending
+              font-size: 16px
+              font-weight: 500
+              color: yellow
+          .status-Complete
+              font-size: 16px
+              font-weight: 500
+              color: green
   .fc-event-hori.fc-event-end, .fc-event-hori.fc-event-start
       border-radius 4px
       padding 6px 6px

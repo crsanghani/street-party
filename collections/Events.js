@@ -13,6 +13,11 @@ let TasksSchema = new SimpleSchema({
     type:   String,
     label:  "Participant responsible for task."
   },
+  'completeStatus': {
+    type: String,
+    label: 'Is the event complete?',
+    allowedValues: [ 'Pending', 'Complete' ]
+  },
   'createdBy': {
     type:   String,
     label:  "Administrator",
