@@ -49,7 +49,7 @@ Template.calendar.rendered = function(){
 		},
 
 		dayClick:function( date, allDay, jsEvent, view) {
-			CalEvents.insert({title:'New Item',start:date,end:date,assignee:'Assignee',completeStatus:"Not Complete"});
+			CalEvents.insert({title:'New Item',start:date,end:date,assignee:'Assignee',completeStatus:"Not-Complete"});
 			updateCalendar();
 		},
 
@@ -72,6 +72,13 @@ Template.calendar.rendered = function(){
 
 			callback(events);
 		},
+		eventRender( event, element ) {
+      element.find( '.fc-event-title' ).html(
+        `<span>${ event.title }</span>
+         <span class="status-${ event.completeStatus }">${ event.completeStatus }</span>
+        `
+      );
+    },
 		editable:true
 	});
 

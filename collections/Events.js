@@ -16,7 +16,7 @@ let TasksSchema = new SimpleSchema({
   'completeStatus': {
     type: String,
     label: 'Is the event complete?',
-    allowedValues: [ 'Not Complete', 'Complete' ]
+    allowedValues: [ 'Not-Complete', 'Complete' ]
   },
   'createdBy': {
     type:   String,
