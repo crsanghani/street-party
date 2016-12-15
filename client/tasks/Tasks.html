@@ -1,13 +1,10 @@
 <template name="Tasks">
-	<h1>Tasks</h1>
+	<h2 class="party-name"><span id="party-name"></span> Tasks</h2>
 		{{#each tasks}}
-			<ul>
-				<div class="tasks-layout">
-					<p class="text">Task: {{title}}</p>
-					<p class="text">Assigned: {{assignee}}</p>
-					<p class="text">Target Date: {{formatDate start}}</p>
-				</div>
-			</ul>
-
+			<div class="tasks-layout">
+				<h3>{{title}}</h3>
+				<p class="text"><span class="task-item">Assigned:</span> {{assignee}}</p>
+				<p class="text"><span class="task-item">Target Date:</span> {{formatDate start}}</p>
+			</div>
 		{{/each}}
 </template>
