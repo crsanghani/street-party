@@ -49,7 +49,7 @@ Template.calendar.rendered = function(){
 		},
 
 		dayClick:function( date, allDay, jsEvent, view) {
-			CalEvents.insert({title:'New Item',start:date,end:date,assignee:'Assignee'});
+			CalEvents.insert({title:'New Item',start:date,end:date,assignee:'Assignee', party_id: getCurrentParty()});
 			updateCalendar();
 		},
 
@@ -67,7 +67,9 @@ Template.calendar.rendered = function(){
 			var events = [];
 			calEvents = CalEvents.find();
 			calEvents.forEach(function(evt){
-				events.push({	id:evt._id,title:evt.title,start:evt.start,end:evt.end,assignee:evt.assignee});
+				if(evt.party_id === getCurrentParty()){
+					events.push({	id:evt._id,title:evt.title,start:evt.start,end:evt.end,assignee:evt.assignee});
+				}
 			})
 
 			callback(events);
@@ -92,4 +94,9 @@ var updateCalEvent = function(id,title, assignee){
 	CalEvents.update(id, {$set: {title:title}});
 	CalEvents.update(id, {$set: {assignee:assignee}});
 	updateCalendar();
+}
+
+function getCurrentParty() {
+  console.log(Session.get('currentParty'));
+  return Session.get('currentParty');
 }
