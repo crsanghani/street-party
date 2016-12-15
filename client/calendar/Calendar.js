@@ -16,7 +16,7 @@ var updateCalendar = function(){
 
 Template.editEvent.events({
 	'click .save':function(evt,tmpl){
-		updateCalEvent(Session.get('editing_calevent'),tmpl.find('.title').value, tmpl.find('.assignee').value, tmpl.find('.complete').value,);
+		updateCalEvent(Session.get('editing_calevent'),tmpl.find('.title').value, tmpl.find('.assignee').value, tmpl.find('[name="completeStatus"] option:selected').value,);
 		Session.set('editing_calevent',null);
 		Session.set('showEditEvent',false);
 		$('#EditEventModal').modal("hide");
@@ -33,7 +33,7 @@ Template.editEvent.events({
 		$('#EditEventModal').modal("hide");
 	},
 	'click .complete':function(evt,tmpl){
-		completeCalEvent(Session.get('editing_calevent'), tmpl.find('.title').value);
+		completeCalEvent(Session.get('editing_calevent'), tmpl.find('.title').value, tmpl.find('[name="completeStatus"] option:selected').value,);
 		Session.set('editing_calevent',null);
 		Session.set('showEditEvent',false);
 		$('#EditEventModal').modal("hide");
@@ -49,7 +49,7 @@ Template.calendar.rendered = function(){
 		},
 
 		dayClick:function( date, allDay, jsEvent, view) {
-			CalEvents.insert({title:'New Item',start:date,end:date,assignee:'Assignee',complete:"Not Complete"});
+			CalEvents.insert({title:'New Item',start:date,end:date,assignee:'Assignee',completeStatus:"Not Complete"});
 			updateCalendar();
 		},
 
@@ -67,7 +67,7 @@ Template.calendar.rendered = function(){
 			var events = [];
 			calEvents = CalEvents.find();
 			calEvents.forEach(function(evt){
-				events.push({	id:evt._id,title:evt.title,start:evt.start,end:evt.end,assignee:evt.assignee,complete:evt.complete});
+				events.push({	id:evt._id,title:evt.title,start:evt.start,end:evt.end,assignee:evt.assignee,completeStatus:evt.completeStatus});
 			})
 
 			callback(events);
@@ -84,13 +84,14 @@ var removeCalEvent = function(id,title){
 	CalEvents.remove({_id:id});
 	updateCalendar();
 }
-var completeCalEvent = function(id,title){
+var completeCalEvent = function(id,title, completeStatus){
 	CalEvents.update(id, {$set: {title:"COMPLETED: " + title}});
+	CalEvents.update(id, {$set: {completeStatus:completeStatus}});
 	updateCalendar();
 }
-var updateCalEvent = function(id,title, assignee, complete){
+var updateCalEvent = function(id,title, assignee, completeStatus){
 	CalEvents.update(id, {$set: {title:title}});
 	CalEvents.update(id, {$set: {assignee:assignee}});
-	CalEvents.update(id, {$set: {complete:complete}});
+	CalEvents.update(id, {$set: {completeStatus:completeStatus}});
 	updateCalendar();
 }

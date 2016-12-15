@@ -13,7 +13,7 @@ let TasksSchema = new SimpleSchema({
     type:   String,
     label:  "Participant responsible for task."
   },
-  'complete': {
+  'completeStatus': {
     type: String,
     label: 'Is the event complete?',
     allowedValues: [ 'Not Complete', 'Complete' ]
