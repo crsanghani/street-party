@@ -49,7 +49,7 @@ Template.calendar.rendered = function(){
 		},
 
 		dayClick:function( date, allDay, jsEvent, view) {
-			CalEvents.insert({title:'New Item',start:date,end:date,assignee:'Assignee',completeStatus:"Not-Complete"});
+			CalEvents.insert({title:'New Item',start:date,end:date,assignee:'Assignee',completeStatus:"Pending"});
 			updateCalendar();
 		},
 
@@ -74,7 +74,7 @@ Template.calendar.rendered = function(){
 		},
 		eventRender( event, element ) {
       element.find( '.fc-event-title' ).html(
-        `<span>${ event.title }</span>
+        `<span>${ event.title }</span></br>
          <span class="status-${ event.completeStatus }">${ event.completeStatus }</span>
         `
       );
@@ -91,11 +91,7 @@ var removeCalEvent = function(id,title){
 	CalEvents.remove({_id:id});
 	updateCalendar();
 }
-var completeCalEvent = function(id,title, completeStatus){
-	CalEvents.update(id, {$set: {title:"COMPLETED: " + title}});
-	CalEvents.update(id, {$set: {completeStatus:completeStatus}});
-	updateCalendar();
-}
+
 var updateCalEvent = function(id,title, assignee, completeStatus){
 	CalEvents.update(id, {$set: {title:title}});
 	CalEvents.update(id, {$set: {assignee:assignee}});
