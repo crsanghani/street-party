@@ -9,7 +9,7 @@ Template.Tasks.helpers({
 Template.Tasks.events({
   'click .toggle-checked'() {
     CalEvents.update(this._id, {
-      $set: { checked: ! this.checked },
+      $set: { completed: ! this.completed },
     });
   },
 });

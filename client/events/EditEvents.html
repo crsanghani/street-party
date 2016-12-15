@@ -12,6 +12,13 @@
 				<div class="modal-body">
 			    <label for="assignee">Assignee: </label><input type="text" class="assignee" name="assignee" value="{{evt.assignee}}" id="assignee">
 		    </div>
+				<div class="modal-body">
+                <label for="complete">Task Complete?</label>
+                <select name="complete" class="form-control">
+                  <option selected="{{selected event.type 'Not Complete' }}" value="Not Complete">Not Complete</option>
+                  <option selected="{{selected event.type 'Complete' }}" value="Complete">Complete</option>
+                </select>
+              </div>
 		    <div class="modal-footer">
 					<a href="#" class="btn btn-secondary complete">Completed</a>
     			<a href="#" class="btn btn-primary save">Save</a>
