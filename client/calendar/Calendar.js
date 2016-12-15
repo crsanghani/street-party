@@ -41,6 +41,7 @@ Template.editEvent.events({
 })
 
 Template.calendar.rendered = function(){
+	$('#party-name').text(getCurrentPartyName()),
 	$('#calendar').fullCalendar({
 		header:{
 			left: 'prev,next today',
@@ -49,7 +50,7 @@ Template.calendar.rendered = function(){
 		},
 
 		dayClick:function( date, allDay, jsEvent, view) {
-			CalEvents.insert({title:'New Item',start:date,end:date,assignee:'Assignee',completeStatus:"Pending"});
+			CalEvents.insert({title:'New Item',start:date,end:date,assignee:'Assignee',completeStatus:"Pending",party_id: getCurrentParty()});
 			updateCalendar();
 		},
 
@@ -67,7 +68,9 @@ Template.calendar.rendered = function(){
 			var events = [];
 			calEvents = CalEvents.find();
 			calEvents.forEach(function(evt){
-				events.push({	id:evt._id,title:evt.title,start:evt.start,end:evt.end,assignee:evt.assignee,completeStatus:evt.completeStatus});
+				if(evt.party_id === getCurrentParty()){
+					events.push({	id:evt._id,title:evt.title,start:evt.start,end:evt.end,assignee:evt.assignee,completeStatus:evt.completeStatus});
+				}
 			})
 
 			callback(events);
@@ -98,4 +101,12 @@ var updateCalEvent = function(id,title, assignee, completeStatus){
 	CalEvents.update(id, {$set: {assignee:assignee}});
 	CalEvents.update(id, {$set: {completeStatus:completeStatus}});
 	updateCalendar();
+}
+
+function getCurrentParty() {
+  return Session.get('currentParty');
+}
+
+function getCurrentPartyName() {
+  return Session.get('currentPartyName');
 }

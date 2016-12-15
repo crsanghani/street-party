@@ -9,3 +9,10 @@ Template.Parties.helpers({
 Template.registerHelper('formatDate', function(date) {
     return moment(date).format('LL');
 });
+
+Template.Parties.events({
+  'click .party': function() {
+    Session.set('currentPartyName', this.name);
+    Session.set('currentParty', this._id);
+  }
+});

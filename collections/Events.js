@@ -27,7 +27,15 @@ let TasksSchema = new SimpleSchema({
     autoform: {
       type: "hidden"
     }
+  },
+  'party_id': {
+    type:   String,
+    label:  "party_id",
+    autoform: {
+      type: "hidden"
+    }
   }
+
 });
 
 CalEvents.attachSchema( TasksSchema );
