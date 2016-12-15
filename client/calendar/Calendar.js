@@ -67,7 +67,9 @@ Template.calendar.rendered = function(){
 			var events = [];
 			calEvents = CalEvents.find();
 			calEvents.forEach(function(evt){
-				events.push({	id:evt._id,title:evt.title,start:evt.start,end:evt.end,assignee:evt.assignee});
+				if(evt.party_id === getCurrentParty()){
+					events.push({	id:evt._id,title:evt.title,start:evt.start,end:evt.end,assignee:evt.assignee});
+				}
 			})
 
 			callback(events);
