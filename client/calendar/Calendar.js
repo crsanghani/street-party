@@ -49,7 +49,7 @@ Template.calendar.rendered = function(){
 		},
 
 		dayClick:function( date, allDay, jsEvent, view) {
-			CalEvents.insert({title:'New Item',start:date,end:date,assignee:'Assignee'});
+			CalEvents.insert({title:'New Item',start:date,end:date,assignee:'Assignee', party_id: getCurrentParty()});
 			updateCalendar();
 		},
 
@@ -92,4 +92,9 @@ var updateCalEvent = function(id,title, assignee){
 	CalEvents.update(id, {$set: {title:title}});
 	CalEvents.update(id, {$set: {assignee:assignee}});
 	updateCalendar();
+}
+
+function getCurrentParty() {
+  console.log(Session.get('currentParty'));
+  return Session.get('currentParty');
 }
