@@ -12,6 +12,7 @@ Template.registerHelper('formatDate', function(date) {
 
 Template.Parties.events({
   'click .party': function() {
+    Session.set('currentPartyName', this.name);
     Session.set('currentParty', this._id);
   }
 });

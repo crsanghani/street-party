@@ -41,6 +41,7 @@ Template.editEvent.events({
 })
 
 Template.calendar.rendered = function(){
+	$('#party-name').text(getCurrentPartyName()),
 	$('#calendar').fullCalendar({
 		header:{
 			left: 'prev,next today',
@@ -97,6 +98,9 @@ var updateCalEvent = function(id,title, assignee){
 }
 
 function getCurrentParty() {
-  console.log(Session.get('currentParty'));
   return Session.get('currentParty');
+}
+
+function getCurrentPartyName() {
+  return Session.get('currentPartyName');
 }
