@@ -13,3 +13,7 @@ Template.Tasks.events({
     });
   },
 });
+
+Template.registerHelper('formatDate', function(start) {
+    return moment(start).format('LL');
+});
