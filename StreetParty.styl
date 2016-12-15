@@ -60,6 +60,7 @@ html
 body
     font-family roboto
     font-size 16px
+    color navy-blue
     background-color light-grey
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
@@ -105,9 +106,10 @@ header
             font-weight 700
         a
             color #FFF
-            &:hover
+            &:hover, &:focus
                 color #FFF
                 opacity 0.9
+                text-decoration none
     .top-nav
         display inline-block
         text-align right
@@ -162,6 +164,7 @@ header
 .home-layout
   position absolute
   width 100%
+  background-color light-grey
   // background-image linear-gradient(to bottom,rgba(40,51,66,0.5) 0%,rgba(40,51,66,0.5) 100%), url("https://images.unsplash.com/photo-1425421598808-4a22ce59cc97?dpr=1&auto=format&fit=crop&w=1500&h=1001&q=80&cs=tinysrgb&crop=")
   // background-position center
   // -webkit-background-size cover
@@ -381,6 +384,7 @@ input, select, textarea, .form-control
         margin-bottom 18px
         .party-date
           float right
+          font-size 14px
           font-weight 500
           background-color navy-blue
           color #FFF
@@ -398,24 +402,6 @@ input, select, textarea, .form-control
         font-weight 700
     .created-by
         color orange
-    .fa-trash
-        opacity 0.3
-        cursor pointer
-        position absolute
-        top 0
-        right 0
-        font-size 1.6em
-        display block
-        padding 20px
-        color black
-        trans()
-        &:hover
-            color red
-            opacity 0.6
-    .ingredient
-        display inline-block
-        margin-right 10px
-        font-size 1.2em
 
 @keyframes card
     0%
@@ -430,20 +416,20 @@ input, select, textarea, .form-control
         transform translate3d(0, 0, 0)
 
 
-.menu-item
-    @extend .party
-
-.shopping-list
-    @extend .party
-    padding 50px 5%
-    list-style none
-    li
-        font-size 2em
-        padding 20px
-        border-bottom 1px solid light-grey
-        border-top 1px solid light-grey
-        & + li
-            border-top none
+// .menu-item
+//     @extend .party
+//
+// .shopping-list
+//     @extend .party
+//     padding 50px 5%
+//     list-style none
+//     li
+//         font-size 2em
+//         padding 20px
+//         border-bottom 1px solid light-grey
+//         border-top 1px solid light-grey
+//         & + li
+//             border-top none
 
 .login-buttons-dropdown-align-
     #login-dropdown-list
@@ -460,7 +446,50 @@ input, select, textarea, .form-control
     padding 10px 20px
     display block
 
-/* Templates
+/* Full Calendar
 --------------------------------------------- */
+  .fc-header
+      margin-bottom: 15px;
+      h2
+          margin 0
+      .fc-state-default
+          background-image none
+          box-shadow none
+          text-shadow none
+          color inherit
+          border none
+      .fc-state-active
+          background-color navy-blue
+          color #fff !important
+      .fc-button
+          display initial
+          height inherit
+          padding: 0.5em 1em;
 
-// Login
+  .fc
+    .fc-view
+        background-color #FFFFFE
+        border-radius 8px
+    .fc-widget-header, .fc-widget-content
+        border-color light-grey
+    .fc-grid
+        th
+            padding 8px 0
+            background-color navy-blue
+            color #FFF
+        .fc-day-number
+            padding 8px 10px 0 0
+        .fc-state-highlight
+            background rgba(255,150,3,0.1)
+            .fc-day-number
+                font-weight 500
+    .fc-event
+        font-size 0.80em
+        background: ocean-blue !important;
+        color: #FFF !important;
+        border none
+    .fc-event-hori.fc-event-end, .fc-event-hori.fc-event-start
+        border-radius 4px
+        padding 6px 6px
+        margin 2px 0 4px 0
+        border none
