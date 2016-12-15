@@ -75,7 +75,7 @@ Template.calendar.rendered = function(){
 		eventRender( event, element ) {
       element.find( '.fc-event-title' ).html(
         `<span>${ event.title }</span></br>
-				 <span>Assignee: ${ event.assignee }</span></br>
+				 <span>Assignee: ${ event.assignee}</span></br>
          <span class="status-${ event.completeStatus }">${ event.completeStatus }</span>
         `
       );
