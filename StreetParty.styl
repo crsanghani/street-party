@@ -135,12 +135,14 @@ header
 
 .main-layout
     lost-center 90%
-    margin 140px 0 150px
+    margin 120px 0 150px
     +above($med)
         lost-center 90%
         padding-left $side-nav
     +above($large)
-        margin-top 140px
+        margin-top 120px
+    .party-name
+        margin 0 0 30px
 
 .new-party
     margin-bottom 20px
@@ -232,28 +234,6 @@ header
         &:hover
             background @background - 20
             border-color @background
-    &.btn-text
-        color purp
-        background transparent
-        border solid 2px purp
-        &:hover
-            background teal
-            border-color @background
-    &.btn-text-dark
-        color #FFF
-        background transparent
-        border solid 2px #FFF
-        &:hover
-            background #FFF
-            color dark-purp
-            border-color @background
-    &.btn-confirmation
-        color black
-        background green
-        border solid 2px @background
-        &:hover
-            background @background - 20
-            border-color dark-purp
     &.btn-cancel
         color #FFF
         background transparent
@@ -415,28 +395,10 @@ input, select, textarea, .form-control
         z-index 10
         transform translate3d(0, 0, 0)
 
-
-// .menu-item
-//     @extend .party
-//
-// .shopping-list
-//     @extend .party
-//     padding 50px 5%
-//     list-style none
-//     li
-//         font-size 2em
-//         padding 20px
-//         border-bottom 1px solid light-grey
-//         border-top 1px solid light-grey
-//         & + li
-//             border-top none
-
 .login-buttons-dropdown-align-
     #login-dropdown-list
         right 0
         left auto
-        a
-            color dark-purp
 
 .tasks-layout
     width 400px
@@ -448,48 +410,48 @@ input, select, textarea, .form-control
 
 /* Full Calendar
 --------------------------------------------- */
-  .fc-header
-      margin-bottom: 15px;
-      h2
-          margin 0
-      .fc-state-default
-          background-image none
-          box-shadow none
-          text-shadow none
-          color inherit
-          border none
-      .fc-state-active
-          background-color navy-blue
-          color #fff !important
-      .fc-button
-          display initial
-          height inherit
-          padding: 0.5em 1em;
+.fc-header
+    margin-bottom: 15px;
+    h2
+        margin 0
+    .fc-state-default
+        background-image none
+        box-shadow none
+        text-shadow none
+        color inherit
+        border none
+    .fc-state-active
+        background-color navy-blue
+        color #fff !important
+    .fc-button
+        display initial
+        height inherit
+        padding: 0.5em 1em;
 
-  .fc
-    .fc-view
-        background-color #FFFFFE
-        border-radius 8px
-    .fc-widget-header, .fc-widget-content
-        border-color light-grey
-    .fc-grid
-        th
-            padding 8px 0
-            background-color navy-blue
-            color #FFF
-        .fc-day-number
-            padding 8px 10px 0 0
-        .fc-state-highlight
-            background rgba(255,150,3,0.1)
-            .fc-day-number
-                font-weight 500
-    .fc-event
-        font-size 0.80em
-        background: ocean-blue !important;
-        color: #FFF !important;
-        border none
-    .fc-event-hori.fc-event-end, .fc-event-hori.fc-event-start
-        border-radius 4px
-        padding 6px 6px
-        margin 2px 0 4px 0
-        border none
+.fc
+  .fc-view
+      background-color #FFFFFE
+      border-radius 8px
+  .fc-widget-header, .fc-widget-content
+      border-color light-grey
+  .fc-grid
+      th
+          padding 8px 0
+          background-color navy-blue
+          color #FFF
+      .fc-day-number
+          padding 8px 10px 0 0
+      .fc-state-highlight
+          background rgba(255,150,3,0.1)
+          .fc-day-number
+              font-weight 500
+  .fc-event
+      font-size 0.80em
+      background: ocean-blue !important;
+      color: #FFF !important;
+      border none
+  .fc-event-hori.fc-event-end, .fc-event-hori.fc-event-start
+      border-radius 4px
+      padding 6px 6px
+      margin 2px 0 4px 0
+      border none
